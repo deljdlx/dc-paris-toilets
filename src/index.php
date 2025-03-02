@@ -1,7 +1,3 @@
-<?php
-$json = json_decode(file_get_contents(__DIR__ . '/toilets.json'), true);
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -22,34 +18,7 @@ $json = json_decode(file_get_contents(__DIR__ . '/toilets.json'), true);
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <link rel="stylesheet" href="styles.css">
-    <style>
-        #search-container {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            background: white;
-            padding: 8px;
-            border-radius: 5px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            display: flex;
-            gap: 5px;
-        }
 
-        input, button {
-            padding: 6px;
-            border-radius: 3px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            cursor: pointer;
-            background: #007bff;
-            color: white;
-            border: none;
-        }
-    </style>
 </head>
 
 <body>
@@ -76,9 +45,9 @@ $json = json_decode(file_get_contents(__DIR__ . '/toilets.json'), true);
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            let markers = new Map(); // Stockage des marqueurs
-            let searchMarker = null; // Marqueur de recherche
-            let userMarker = null; // Marqueur de géolocalisation utilisateur
+            let markers = new Map();
+            let searchMarker = null;
+            let userMarker = null;
 
             function loadToilets(bounds) {
                 fetch('toilets.json')
