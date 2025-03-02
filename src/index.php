@@ -131,7 +131,7 @@
                             iconAnchor: [15, 40]
                         })})
                             .addTo(map)
-                            .bindPopup("📍 Vous êtes ici")
+                            .bindPopup("📍 Your position")
                             .openPopup();
 
                         // Centre la carte sur la position actuelle
